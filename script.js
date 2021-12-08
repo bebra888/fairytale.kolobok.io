@@ -130,7 +130,7 @@ function onHoverImage() {
   spisok.style.opacity = 0;
   text.style.opacity = 0;
 }
-img.onmouseover = function () {
+function imgOnMouseOver(){
   button.style.opacity = 1;
   next.style.opacity = 1;
   next2.style.opacity = 1;
@@ -140,4 +140,6 @@ img.onmouseover = function () {
   text.style.opacity = 1;
   pause.style.opacity = 1;
   setTimeout(onHoverImage, 3000);
-};
+}
+img.onmouseover = imgOnMouseOver;
+  
