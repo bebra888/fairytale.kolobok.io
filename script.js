@@ -57,10 +57,16 @@ function filledData(s) {
 filledData(currentSlide);
 
 function onNextClick() {
+  let elem = document.getElementById("audioblock");
   if (slideIndex + 1 === slides.length) {
     slideIndex = 0;
-  } else {
+  }
+ else {
+  slideIndex = slideIndex + 1;
+}
+  if (elem.play()) {
     slideIndex = slideIndex + 1;
+    elem.play();
   }
   filledData(slides[slideIndex]);
   filledAudio(slides[slideIndex]);
@@ -87,6 +93,10 @@ function onButtonPlay() {
   button.style.display = "none";
   pause.style.display = "block";
   elem.play();
+
+  for (elem.play(); slideIndex + 1; ) {
+    filledAudio();
+  }
 }
 
 function onButtonPause() {
@@ -119,6 +129,8 @@ const next2 = document.getElementById("next2");
 const zvuk = document.getElementById("zvuk");
 const arrow = document.getElementById("arrow");
 const spisok = document.getElementById("spisok");
+const log = document.getElementById("text");
+const log2 = document.getElementById("text2");
 
 function onHoverImage() {
   button.style.opacity = 0;
@@ -129,8 +141,10 @@ function onHoverImage() {
   arrow.style.opacity = 0;
   spisok.style.opacity = 0;
   text.style.opacity = 0;
+  log.style.opacity = 1;
+  log2.style.opacity = 0;
 }
-function imgOnMouseOver(){
+function imgOnMouseOver() {
   button.style.opacity = 1;
   next.style.opacity = 1;
   next2.style.opacity = 1;
@@ -140,6 +154,7 @@ function imgOnMouseOver(){
   text.style.opacity = 1;
   pause.style.opacity = 1;
   setTimeout(onHoverImage, 3000);
+  log.style.opacity = 0;
+  log2.style.opacity = 1;
 }
 img.onmouseover = imgOnMouseOver;
-  
