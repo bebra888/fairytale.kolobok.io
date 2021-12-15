@@ -56,14 +56,14 @@ function filledData(s) {
 }
 filledData(currentSlide);
 
-function onNextClick() {
+function onClickNext() {
+  addLog("onClickNext")
   let elem = document.getElementById("audioblock");
   if (slideIndex + 1 === slides.length) {
     slideIndex = 0;
+  } else {
+    slideIndex = slideIndex + 1;
   }
- else {
-  slideIndex = slideIndex + 1;
-}
   if (elem.play()) {
     slideIndex = slideIndex + 1;
     elem.play();
@@ -73,17 +73,32 @@ function onNextClick() {
   filledNumberText(slides[slideIndex]);
 }
 
+function onClickPrevious() {
+  addLog("onClickPrevious")
+  if (slideIndex == 0) {
+    slideIndex = slides.length - 1;
+  } else {
+    slideIndex = slideIndex - 1;
+  }
+  filledData(slides[slideIndex]);
+  filledAudio(slides[slideIndex]);
+  filledNumberText(slides[slideIndex]);
+}
+
 function filledAudio(s) {
+  addLog("filledAudio")
   const audio = document.getElementById("audioblock");
   audio.src = s.audio;
   audio.onended = function () {
-    onNextClick();
-    onButtonPlay();
+    onClickNext();
+    onClickButtonPlay();
   };
 }
 filledAudio(currentSlide);
 
-function onButtonPlay() {
+function onClickButtonPlay() {
+  addLog("onClickButtonPlay")
+
   const button = document.getElementById("play");
 
   const pause = document.getElementById("pause");
@@ -99,23 +114,21 @@ function onButtonPlay() {
   }
 }
 
-function onButtonPause() {
+function addLog(log){
+ const logUl = document.getElementById("log");
+ const li = document. createElement("li");
+ li.innerText = log;
+ logUl.appendChild(li);
+//  logParagraph.innerHTML = `${logParagraph.innerText}  ${log}`;
+}
+
+function onClickButtonPause() {
+  addLog("onClickButtonPause")
   const pause = document.getElementById("pause");
   let elem = document.getElementById("audioblock");
   pause.style.display = "none";
   button.style.display = "block";
   elem.pause();
-}
-
-function onPreviousClick() {
-  if (slideIndex == 0) {
-    slideIndex = slides.length - 1;
-  } else {
-    slideIndex = slideIndex - 1;
-  }
-  filledData(slides[slideIndex]);
-  filledAudio(slides[slideIndex]);
-  filledNumberText(slides[slideIndex]);
 }
 
 const img = document.getElementById("slideImage");
@@ -129,10 +142,9 @@ const next2 = document.getElementById("next2");
 const zvuk = document.getElementById("zvuk");
 const arrow = document.getElementById("arrow");
 const spisok = document.getElementById("spisok");
-const log = document.getElementById("text");
-const log2 = document.getElementById("text2");
 
 function onHoverImage() {
+  addLog("onHoverImage")
   button.style.opacity = 0;
   pause.style.opacity = 0;
   next.style.opacity = 0;
@@ -141,10 +153,9 @@ function onHoverImage() {
   arrow.style.opacity = 0;
   spisok.style.opacity = 0;
   text.style.opacity = 0;
-  log.style.opacity = 1;
-  log2.style.opacity = 0;
 }
 function imgOnMouseOver() {
+  addLog("imgOnMouseOver")
   button.style.opacity = 1;
   next.style.opacity = 1;
   next2.style.opacity = 1;
@@ -154,7 +165,5 @@ function imgOnMouseOver() {
   text.style.opacity = 1;
   pause.style.opacity = 1;
   setTimeout(onHoverImage, 3000);
-  log.style.opacity = 0;
-  log2.style.opacity = 1;
 }
 img.onmouseover = imgOnMouseOver;

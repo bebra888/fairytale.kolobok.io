@@ -32,11 +32,11 @@
           class="pause-button"
           id="pause"
           alt="pause"
-          onclick="onButtonPause()"
+          onclick="onClickButtonPause()"
         />
 
         <img
-          onclick="onButtonPlay();"
+          onclick="onClickButtonPlay();"
           id="play"
           class="button-play"
           src="/assets/images/play 1.png"
@@ -48,14 +48,14 @@
 
       <img
       id="next"
-        onclick="onPreviousClick()"
+        onclick="onClickPrevious()"
         class="button-next1"
         src="/assets/images/стрелка влево.png"
       />
 
       <img
       id="next2"
-        onclick="onNextClick()"
+        onclick="onClickNext()"
         class="button-next2"
         src="/assets/images/стрелка вправо.png"
       />
@@ -82,8 +82,7 @@
         src="/assets/images/К списку сказок.png"
         width="5%"
       />
-      <p id="text" class="text">Opacity 0 </p>
-      <p id="text2" class="text">Opacity 1 </p>
+      <ul id="log" class="text"></ul>
     </div>
     <script src="script.js"></script>
   </body>
