@@ -86,7 +86,6 @@ function onClickPrevious() {
 }
 
 function filledAudio(s) {
-  addLog("filledAudio")
   const audio = document.getElementById("audioblock");
   audio.src = s.audio;
   audio.onended = function () {
@@ -116,10 +115,9 @@ function onClickButtonPlay() {
 
 function addLog(log){
  const logUl = document.getElementById("log");
- const li = document. createElement("li");
+ const li = document.createElement("li");
  li.innerText = log;
  logUl.appendChild(li);
-//  logParagraph.innerHTML = `${logParagraph.innerText}  ${log}`;
 }
 
 function onClickButtonPause() {
