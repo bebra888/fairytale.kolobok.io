@@ -57,11 +57,17 @@ function filledData(s) {
 filledData(currentSlide);
 
 function onClickNext() {
-  addLog("onClickNext")
+  const audio = document.getElementById("audioblock");
+  audio.src = slides[slideIndex].audio
+  var zvuk = audio.play();
+  // addLog("onClickNext")
   if (slideIndex + 1 === slides.length) {
     slideIndex = 0;
   } else {
     slideIndex = slideIndex + 1;
+  }
+  if (zvuk !== undefined){
+    audio.play();
   }
 filledData(slides[slideIndex]);
   filledAudio(slides[slideIndex]);
@@ -69,7 +75,7 @@ filledData(slides[slideIndex]);
 }
 
 function onClickPrevious() {
-  addLog("onClickPrevious")
+  // addLog("onClickPrevious")
   if (slideIndex == 0) {
     slideIndex = slides.length - 1;
   } else {
@@ -91,7 +97,7 @@ function filledAudio(s) {
 filledAudio(currentSlide);
 
 function onClickButtonPlay() {
-  addLog("onClickButtonPlay")
+  // addLog("onClickButtonPlay")
 
   const button = document.getElementById("play");
 
@@ -108,15 +114,15 @@ function onClickButtonPlay() {
   }
 }
 
-function addLog(log){
- const logUl = document.getElementById("log");
- const li = document.createElement("li");
- li.innerText = log;
- logUl.appendChild(li);
-}
+// function addLog(log){
+//  const logUl = document.getElementById("log");
+//  const li = document.createElement("li");
+//  li.innerText = log;
+//  logUl.appendChild(li);
+// }
 
 function onClickButtonPause() {
-  addLog("onClickButtonPause")
+  // addLog("onClickButtonPause")
   const pause = document.getElementById("pause");
   let elem = document.getElementById("audioblock");
   pause.style.display = "none";
@@ -137,7 +143,7 @@ const arrow = document.getElementById("arrow");
 const spisok = document.getElementById("spisok");
 
 function onHoverImage() {
-  addLog("onHoverImage")
+  // addLog("onHoverImage")
   button.style.opacity = 0;
   pause.style.opacity = 0;
   next.style.opacity = 0;
@@ -148,7 +154,7 @@ function onHoverImage() {
   text.style.opacity = 0;
 }
 function imgOnMouseOver() {
-  addLog("imgOnMouseOver")
+  // addLog("imgOnMouseOver")
   button.style.opacity = 1;
   next.style.opacity = 1;
   next2.style.opacity = 1;
