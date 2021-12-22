@@ -58,17 +58,12 @@ filledData(currentSlide);
 
 function onClickNext() {
   addLog("onClickNext")
-  let elem = document.getElementById("audioblock");
   if (slideIndex + 1 === slides.length) {
     slideIndex = 0;
   } else {
     slideIndex = slideIndex + 1;
   }
-  if (elem.play()) {
-    slideIndex = slideIndex + 1;
-    elem.play();
-  }
-  filledData(slides[slideIndex]);
+filledData(slides[slideIndex]);
   filledAudio(slides[slideIndex]);
   filledNumberText(slides[slideIndex]);
 }
@@ -162,6 +157,6 @@ function imgOnMouseOver() {
   spisok.style.opacity = 1;
   text.style.opacity = 1;
   pause.style.opacity = 1;
-  setTimeout(onHoverImage, 3000);
+  setTimeout(onHoverImage, 5000);
 }
-img.onmouseover = imgOnMouseOver;
+img.onmousemove = imgOnMouseOver;
