@@ -142,19 +142,9 @@ const zvuk = document.getElementById("zvuk");
 const arrow = document.getElementById("arrow");
 const spisok = document.getElementById("spisok");
 
-function onHoverImage() {
-  // addLog("onHoverImage")
-  button.style.opacity = 0;
-  pause.style.opacity = 0;
-  next.style.opacity = 0;
-  next2.style.opacity = 0;
-  zvuk.style.opacity = 0;
-  arrow.style.opacity = 0;
-  spisok.style.opacity = 0;
-  text.style.opacity = 0;
-}
 function imgOnMouseOver() {
   // addLog("imgOnMouseOver")
+  img.className = 'image';
   button.style.opacity = 1;
   next.style.opacity = 1;
   next2.style.opacity = 1;
@@ -163,6 +153,21 @@ function imgOnMouseOver() {
   spisok.style.opacity = 1;
   text.style.opacity = 1;
   pause.style.opacity = 1;
-  setTimeout(onHoverImage, 5000);
+  setTimeout(onHoverImage, 4000);
+}
+
+
+
+function onHoverImage() {
+  // addLog("onHoverImage")
+  img.className = 'photo-style';
+  button.style.opacity = 0;
+  pause.style.opacity = 0;
+  next.style.opacity = 0;
+  next2.style.opacity = 0;
+  zvuk.style.opacity = 0;
+  arrow.style.opacity = 0;
+  spisok.style.opacity = 0;
+  text.style.opacity = 0;
 }
 img.onmousemove = imgOnMouseOver;
