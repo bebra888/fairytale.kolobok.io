@@ -153,7 +153,7 @@ function imgOnMouseOver() {
   spisok.style.opacity = 1;
   text.style.opacity = 1;
   pause.style.opacity = 1;
-  setTimeout(onHoverImage, 4000);
+  setTimeout(onHoverImage, 5000);
 }
 
 
