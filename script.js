@@ -3,46 +3,60 @@ let slides = [
     audio: "/assets/sounds/kol_1.mp3",
     image: "/assets/images/kol_1.jpg",
     number: "1/8",
+    background: "url('/assets/images/kol_1 (2).jpg')",
   },
   {
     image: "/assets/images/kol_2.jpg",
     audio: "/assets/sounds/kol_2.mp3",
     number: "2/8",
+    background: "url('/assets/images/kol_2 (2).jpg')",
   },
   {
     image: "/assets/images/kol_3.jpg",
     audio: "/assets/sounds/kol_3.mp3",
     number: "3/8",
+    background: "url('/assets/images/kol_3 (2).jpg')",
   },
   {
     image: "/assets/images/kol_4.jpg",
     audio: "/assets/sounds/kol_4.mp3",
     number: "4/8",
+    background: "url('/assets/images/kol_4 (2).jpg')",
   },
   {
     image: "/assets/images/kol_5.jpg",
     audio: "/assets/sounds/kol_5.mp3",
     number: "5/8",
+    background: "url('/assets/images/kol_5 (2).jpg')",
   },
   {
     image: "/assets/images/kol_6.jpg",
     audio: "/assets/sounds/kol_6.mp3",
     number: "6/8",
+    background: "url('/assets/images/kol_6 (2).jpg')",
   },
   {
     image: "/assets/images/kol_7.jpg",
     audio: "/assets/sounds/kol_7.mp3",
     number: "7/8",
+    background: "url('/assets/images/kol_7 (2).jpg')",
   },
   {
     image: "/assets/images/kol_8.jpg",
     audio: "/assets/sounds/kol_8.mp3",
     number: "8/8",
+    background: "url('/assets/images/kol_8 (2).jpg')",
   },
 ];
 
 let slideIndex = 0;
 let currentSlide = slides[slideIndex];
+
+function filledBackground() {
+  const background = document.querySelector('body');
+  background.style.backgroundImage = slides[slideIndex].background;
+}
+filledBackground(currentSlide)
 
 function filledNumberText() {
   const text = document.getElementById("number");
@@ -58,7 +72,7 @@ filledData(currentSlide);
 
 function onClickNext() {
   const audio = document.getElementById("audioblock");
-  audio.src = slides[slideIndex].audio
+  audio.src = slides[slideIndex].audio;
   var zvuk = audio.play();
   // addLog("onClickNext")
   if (slideIndex + 1 === slides.length) {
@@ -66,10 +80,11 @@ function onClickNext() {
   } else {
     slideIndex = slideIndex + 1;
   }
-  if (zvuk !== undefined){
+  if (zvuk !== undefined) {
     audio.play();
   }
-filledData(slides[slideIndex]);
+  filledBackground(slides[slideIndex]);
+  filledData(slides[slideIndex]);
   filledAudio(slides[slideIndex]);
   filledNumberText(slides[slideIndex]);
 }
@@ -81,6 +96,7 @@ function onClickPrevious() {
   } else {
     slideIndex = slideIndex - 1;
   }
+  filledBackground(slides[slideIndex]);
   filledData(slides[slideIndex]);
   filledAudio(slides[slideIndex]);
   filledNumberText(slides[slideIndex]);
@@ -144,7 +160,7 @@ const spisok = document.getElementById("spisok");
 
 function imgOnMouseOver() {
   // addLog("imgOnMouseOver")
-  img.className = 'image';
+  img.className = "image";
   button.style.opacity = 1;
   next.style.opacity = 1;
   next2.style.opacity = 1;
@@ -156,11 +172,9 @@ function imgOnMouseOver() {
   setTimeout(onHoverImage, 5000);
 }
 
-
-
 function onHoverImage() {
   // addLog("onHoverImage")
-  img.className = 'photo-style';
+  img.className = "photo-style";
   button.style.opacity = 0;
   pause.style.opacity = 0;
   next.style.opacity = 0;
