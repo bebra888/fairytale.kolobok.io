@@ -71,18 +71,25 @@ function filledData(s) {
 filledData(currentSlide);
 
 function onClickNext() {
+  const playButton = document.getElementById("play");
+  const pause = document.getElementById("pause");
   const audio = document.getElementById("audioblock");
   audio.src = slides[slideIndex].audio;
-  var zvuk = audio.play();
+  audio.play();
   // addLog("onClickNext")
   if (slideIndex + 1 === slides.length) {
     slideIndex = 0;
   } else {
     slideIndex = slideIndex + 1;
   }
-  if (zvuk !== undefined) {
-    audio.play();
+
+  if( pause.style.display = "block"){
+    playButton.style.display = "block";
+    pause.style.display = "none"
   }
+  
+  
+
   filledBackground(slides[slideIndex]);
   filledData(slides[slideIndex]);
   filledAudio(slides[slideIndex]);
@@ -115,19 +122,20 @@ filledAudio(currentSlide);
 function onClickButtonPlay() {
   // addLog("onClickButtonPlay")
 
-  const button = document.getElementById("play");
-
+  const playButton = document.getElementById("play");
   const pause = document.getElementById("pause");
 
   let elem = document.getElementById("audioblock");
 
-  button.style.display = "none";
+  playButton.style.display = "none";
   pause.style.display = "block";
   elem.play();
 
   for (elem.play(); slideIndex + 1; ) {
     filledAudio();
   }
+
+ 
 }
 
 // function addLog(log){
