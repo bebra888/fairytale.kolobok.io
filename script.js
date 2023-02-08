@@ -138,6 +138,12 @@ function onClickButtonPlay() {
  
 }
 
+ function onFairytaleChooseClick(){
+  const menu = document.getElementById('menu')
+  const cardKolobok = document.getElementById('cardKolobok')
+  menu.style.display = "none";
+  cardKolobok.style.display = "block";
+}
 // function addLog(log){
 //  const logUl = document.getElementById("log");
 //  const li = document.createElement("li");
