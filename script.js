@@ -1,5 +1,15 @@
-let slides = [
-  {
+
+let slides = [];
+
+let slideIndex = 0;
+let currentSlide = slides[slideIndex];
+
+function onFairytaleChooseKolobokClick(){
+  const menu = document.getElementById('menu')
+  const card= document.getElementById('cardKolobok')
+  menu.style.display = "none";
+  card.style.display = "block";
+  slides =  [{
     audio: "/assets/sounds/kol_1.mp3",
     image: "/assets/images/kol_1.jpg",
     number: "1/8",
@@ -46,15 +56,131 @@ let slides = [
     audio: "/assets/sounds/kol_8.mp3",
     number: "8/8",
     background: "url('/assets/images/kol_8 (2).jpg')",
-  },
-];
+  }]
+  console.log(slides)
 
-let slideIndex = 0;
-let currentSlide = slides[slideIndex];
+ slideIndex = 0;
+ currentSlide = slides[slideIndex];
+ filledBackground(currentSlide)
+ filledNumberText(currentSlide);
+ filledData(currentSlide);
+ filledAudio(currentSlide);
+}
+
+
+
+
+function onFairytaleChooseMamontClick(){
+  const menu = document.getElementById('menu')
+  const card= document.getElementById('cardKolobok')
+  menu.style.display = "none";
+  card.style.display = "block";
+  slides = [{
+    audio: "/assets/mamontenok/records/0.mp3",
+    image: "/assets/mamontenok/images/0.jpg",
+    number: "1/17",
+    background: "url('/assets/mamontenok/images/0(1).jpg')",
+  },
+  {
+    audio: "/assets/mamontenok/records/1.mp3",
+    image: "/assets/mamontenok/images/1.jpg",
+    number: "2/17",
+    background: "url('/assets/mamontenok/images/1(1).jpg')",
+  },{
+    audio: "/assets/mamontenok/records/2.mp3",
+    image: "/assets/mamontenok/images/2.jpg",
+    number: "3/17",
+    background: "url('/assets/mamontenok/images/2(1).jpg')",
+  },{
+    audio: "/assets/mamontenok/records/3.mp3",
+    image: "/assets/mamontenok/images/3.jpg",
+    number: "4/17",
+    background: "url('/assets/mamontenok/images/3(1).jpg')",
+  },{
+    audio: "/assets/mamontenok/records/4.mp3",
+    image: "/assets/mamontenok/images/4.jpg",
+    number: "5/17",
+    background: "url('/assets/mamontenok/images/4(1).jpg')",
+  },{
+    audio: "/assets/mamontenok/records/5.mp3",
+    image: "/assets/mamontenok/images/5.jpg",
+    number: "6/17",
+    background: "url('/assets/mamontenok/images/5(1).jpg')",
+  },{
+    audio: "/assets/mamontenok/records/6.mp3",
+    image: "/assets/mamontenok/images/6.jpg",
+    number: "7/17",
+    background: "url('/assets/mamontenok/images/6(1).jpg')",
+  },{
+    audio: "/assets/mamontenok/records/7.mp3",
+    image: "/assets/mamontenok/images/7.jpg",
+    number: "8/17",
+    background: "url('/assets/mamontenok/images/7(1).jpg')",
+  },{
+    audio: "/assets/mamontenok/records/8.mp3",
+    image: "/assets/mamontenok/images/8.jpg",
+    number: "9/17",
+    background: "url('/assets/mamontenok/images/8(1).jpg')",
+  },{
+    audio: "/assets/mamontenok/records/9.mp3",
+    image: "/assets/mamontenok/images/9.jpg",
+    number: "10/17",
+    background: "url('/assets/mamontenok/images/9(1).jpg')",
+  },{
+    audio: "/assets/mamontenok/records/10.mp3",
+    image: "/assets/mamontenok/images/10.jpg",
+    number: "11/17",
+    background: "url('/assets/mamontenok/images/10(1).jpg')",
+  },{
+    audio: "/assets/mamontenok/records/11.mp3",
+    image: "/assets/mamontenok/images/11.jpg",
+    number: "12/17",
+    background: "url('/assets/mamontenok/images/11(1).jpg')",
+  },{
+    audio: "/assets/mamontenok/records/12.mp3",
+    image: "/assets/mamontenok/images/12.jpg",
+    number: "13/17",
+    background: "url('/assets/mamontenok/images/12(1).jpg')",
+  },{
+    audio: "/assets/mamontenok/records/13.mp3",
+    image: "/assets/mamontenok/images/13.jpg",
+    number: "14/17",
+    background: "url('/assets/mamontenok/images/13(1).jpg')",
+  },{
+    audio: "/assets/mamontenok/records/14.mp3",
+    image: "/assets/mamontenok/images/14.jpg",
+    number: "15/17",
+    background: "url('/assets/mamontenok/images/14(1).jpg')",
+  },{
+    audio: "/assets/mamontenok/records/15.mp3",
+    image: "/assets/mamontenok/images/15.jpg",
+    number: "16/17",
+    background: "url('/assets/mamontenok/images/15(1).jpg')",
+  },{
+    audio: "/assets/mamontenok/records/16.mp3",
+    image: "/assets/mamontenok/images/16.jpg",
+    number: "17/17",
+    background: "url('/assets/mamontenok/images/16(1).jpg')",
+  },]
+
+  console.log(slides)
+
+ slideIndex = 0;
+ currentSlide = slides[slideIndex];
+ filledBackground(currentSlide)
+ filledNumberText(currentSlide);
+ filledData(currentSlide);
+ filledAudio(currentSlide);
+
+}
+
+
 
 function filledBackground() {
-  const background = document.querySelector('body');
+  const background = document.querySelector('body')
   background.style.backgroundImage = slides[slideIndex].background;
+  
+  
 }
 filledBackground(currentSlide)
 
@@ -64,10 +190,11 @@ function filledNumberText() {
 }
 filledNumberText(currentSlide);
 
-function filledData(s) {
+function filledData() {
   const kartinka = document.getElementById("slideImage");
-  kartinka.src = s.image;
-}
+    kartinka.src = slides[slideIndex].image;
+  }
+
 filledData(currentSlide);
 
 function onClickNext() {
@@ -97,21 +224,28 @@ function onClickNext() {
 }
 
 function onClickPrevious() {
+  const playButton = document.getElementById("play");
+  const pause = document.getElementById("pause");
   // addLog("onClickPrevious")
   if (slideIndex == 0) {
     slideIndex = slides.length - 1;
   } else {
     slideIndex = slideIndex - 1;
   }
+  if( pause.style.display = "block"){
+    playButton.style.display = "block";
+    pause.style.display = "none"
+  }
+  
   filledBackground(slides[slideIndex]);
   filledData(slides[slideIndex]);
   filledAudio(slides[slideIndex]);
   filledNumberText(slides[slideIndex]);
 }
 
-function filledAudio(s) {
+function filledAudio() {
   const audio = document.getElementById("audioblock");
-  audio.src = s.audio;
+  audio.src = slides[slideIndex].audio;
   audio.onended = function () {
     onClickNext();
     onClickButtonPlay();
@@ -131,19 +265,10 @@ function onClickButtonPlay() {
   pause.style.display = "block";
   elem.play();
 
-  for (elem.play(); slideIndex + 1; ) {
-    filledAudio();
-  }
-
- 
+  
 }
+  
 
- function onFairytaleChooseClick(){
-  const menu = document.getElementById('menu')
-  const cardKolobok = document.getElementById('cardKolobok')
-  menu.style.display = "none";
-  cardKolobok.style.display = "block";
-}
 // function addLog(log){
 //  const logUl = document.getElementById("log");
 //  const li = document.createElement("li");
@@ -152,6 +277,7 @@ function onClickButtonPlay() {
 // }
 
 function onClickButtonPause() {
+  const button = document.getElementById("play");
   // addLog("onClickButtonPause")
   const pause = document.getElementById("pause");
   let elem = document.getElementById("audioblock");
@@ -184,6 +310,11 @@ function imgOnMouseOver() {
   text.style.opacity = 1;
   pause.style.opacity = 1;
   setTimeout(onHoverImage, 5000);
+
+  filledBackground(slides[slideIndex]);
+  filledData(slides[slideIndex]);
+  filledAudio(slides[slideIndex]);
+  filledNumberText(slides[slideIndex]);
 }
 
 function onHoverImage() {
@@ -197,5 +328,10 @@ function onHoverImage() {
   arrow.style.opacity = 0;
   spisok.style.opacity = 0;
   text.style.opacity = 0;
+
+  filledBackground(slides[slideIndex]);
+  filledData(slides[slideIndex]);
+  filledAudio(slides[slideIndex]);
+  filledNumberText(slides[slideIndex]);
 }
 img.onmousemove = imgOnMouseOver;
