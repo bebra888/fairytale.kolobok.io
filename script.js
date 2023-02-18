@@ -293,12 +293,20 @@ function onClickButtonPause() {
 }
 
 function onArrowBackClick(){
+  const playButton = document.getElementById("play");
+  const pause = document.getElementById("pause");
+  let elem = document.getElementById("audioblock");
   const background = document.querySelector('body')
   const menu = document.getElementById('menu')
   const card= document.getElementById('cardKolobok')
   menu.style.display = "block";
   card.style.display = "none";
   background.style.backgroundImage = '';
+  if( pause.style.display = "block"){
+    elem.pause();
+    playButton.style.display = "block";
+    pause.style.display = "none";
+  }
 }
 
 
