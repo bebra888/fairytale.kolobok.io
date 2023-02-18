@@ -78,89 +78,95 @@ function onFairytaleChooseMamontClick(){
   slides = [{
     audio: "/assets/mamontenok/records/0.mp3",
     image: "/assets/mamontenok/images/0.jpg",
-    number: "1/17",
+    number: "1/18",
     background: "url('/assets/mamontenok/images/0(1).jpg')",
   },
   {
     audio: "/assets/mamontenok/records/1.mp3",
     image: "/assets/mamontenok/images/1.jpg",
-    number: "2/17",
+    number: "2/18",
     background: "url('/assets/mamontenok/images/1(1).jpg')",
   },{
     audio: "/assets/mamontenok/records/2.mp3",
     image: "/assets/mamontenok/images/2.jpg",
-    number: "3/17",
+    number: "3/18",
     background: "url('/assets/mamontenok/images/2(1).jpg')",
   },{
     audio: "/assets/mamontenok/records/3.mp3",
     image: "/assets/mamontenok/images/3.jpg",
-    number: "4/17",
+    number: "4/18",
     background: "url('/assets/mamontenok/images/3(1).jpg')",
   },{
     audio: "/assets/mamontenok/records/4.mp3",
     image: "/assets/mamontenok/images/4.jpg",
-    number: "5/17",
+    number: "5/18",
     background: "url('/assets/mamontenok/images/4(1).jpg')",
   },{
     audio: "/assets/mamontenok/records/5.mp3",
     image: "/assets/mamontenok/images/5.jpg",
-    number: "6/17",
+    number: "6/18",
     background: "url('/assets/mamontenok/images/5(1).jpg')",
   },{
     audio: "/assets/mamontenok/records/6.mp3",
     image: "/assets/mamontenok/images/6.jpg",
-    number: "7/17",
+    number: "7/18",
     background: "url('/assets/mamontenok/images/6(1).jpg')",
   },{
     audio: "/assets/mamontenok/records/7.mp3",
     image: "/assets/mamontenok/images/7.jpg",
-    number: "8/17",
+    number: "8/18",
     background: "url('/assets/mamontenok/images/7(1).jpg')",
   },{
     audio: "/assets/mamontenok/records/8.mp3",
     image: "/assets/mamontenok/images/8.jpg",
-    number: "9/17",
+    number: "9/18",
     background: "url('/assets/mamontenok/images/8(1).jpg')",
   },{
     audio: "/assets/mamontenok/records/9.mp3",
     image: "/assets/mamontenok/images/9.jpg",
-    number: "10/17",
+    number: "10/18",
     background: "url('/assets/mamontenok/images/9(1).jpg')",
   },{
     audio: "/assets/mamontenok/records/10.mp3",
     image: "/assets/mamontenok/images/10.jpg",
-    number: "11/17",
+    number: "11/18",
     background: "url('/assets/mamontenok/images/10(1).jpg')",
   },{
     audio: "/assets/mamontenok/records/11.mp3",
     image: "/assets/mamontenok/images/11.jpg",
-    number: "12/17",
+    number: "12/18",
     background: "url('/assets/mamontenok/images/11(1).jpg')",
   },{
     audio: "/assets/mamontenok/records/12.mp3",
     image: "/assets/mamontenok/images/12.jpg",
-    number: "13/17",
+    number: "13/18",
     background: "url('/assets/mamontenok/images/12(1).jpg')",
   },{
     audio: "/assets/mamontenok/records/13.mp3",
     image: "/assets/mamontenok/images/13.jpg",
-    number: "14/17",
+    number: "14/18",
     background: "url('/assets/mamontenok/images/13(1).jpg')",
   },{
     audio: "/assets/mamontenok/records/14.mp3",
     image: "/assets/mamontenok/images/14.jpg",
-    number: "15/17",
+    number: "15/18",
     background: "url('/assets/mamontenok/images/14(1).jpg')",
   },{
     audio: "/assets/mamontenok/records/15.mp3",
     image: "/assets/mamontenok/images/15.jpg",
-    number: "16/17",
+    number: "16/18",
     background: "url('/assets/mamontenok/images/15(1).jpg')",
   },{
     audio: "/assets/mamontenok/records/16.mp3",
     image: "/assets/mamontenok/images/16.jpg",
-    number: "17/17",
+    number: "17/18",
     background: "url('/assets/mamontenok/images/16(1).jpg')",
+  },
+  {
+    audio: "/assets/mamontenok/records/17.mp3",
+    image: "/assets/mamontenok/images/18.jpg",
+    number: "18/18",
+    background: "url('/assets/mamontenok/images/18(1).jpg')",
   },]
 
   console.log(slides)
@@ -286,19 +292,33 @@ function onClickButtonPause() {
   elem.pause();
 }
 
+function onArrowBackClick(){
+  const background = document.querySelector('body')
+  const menu = document.getElementById('menu')
+  const card= document.getElementById('cardKolobok')
+  menu.style.display = "block";
+  card.style.display = "none";
+  background.style.backgroundImage = '';
+}
+
+
 const img = document.getElementById("slideImage");
-img.src = slides[slideIndex].image;
-const text = document.getElementById("number");
-text.innerHTML = slides[slideIndex].number;
-const button = document.getElementById("play");
-const pause = document.getElementById("pause");
-const next = document.getElementById("next");
-const next2 = document.getElementById("next2");
-const zvuk = document.getElementById("zvuk");
-const arrow = document.getElementById("arrow");
-const spisok = document.getElementById("spisok");
+
 
 function imgOnMouseOver() {
+  const img = document.getElementById("slideImage");
+  img.src = slides[slideIndex].image;
+  const text = document.getElementById("number");
+  text.innerHTML = slides[slideIndex].number;
+  const button = document.getElementById("play");
+  const pause = document.getElementById("pause");
+  const next = document.getElementById("next");
+  const next2 = document.getElementById("next2");
+  const zvuk = document.getElementById("zvuk");
+  const arrow = document.getElementById("arrow");
+  const spisok = document.getElementById("spisok");
+
+
   // addLog("imgOnMouseOver")
   img.className = "image";
   button.style.opacity = 1;
@@ -309,15 +329,25 @@ function imgOnMouseOver() {
   spisok.style.opacity = 1;
   text.style.opacity = 1;
   pause.style.opacity = 1;
-  setTimeout(onHoverImage, 5000);
-
-  filledBackground(slides[slideIndex]);
-  filledData(slides[slideIndex]);
-  filledAudio(slides[slideIndex]);
-  filledNumberText(slides[slideIndex]);
+  setTimeout(onHoverImage, 3000);
+  
 }
 
 function onHoverImage() {
+  const img = document.getElementById("slideImage");
+  img.src = slides[slideIndex].image;
+  const text = document.getElementById("number");
+  text.innerHTML = slides[slideIndex].number;
+  const button = document.getElementById("play");
+  const pause = document.getElementById("pause");
+  const next = document.getElementById("next");
+  const next2 = document.getElementById("next2");
+  const zvuk = document.getElementById("zvuk");
+  const arrow = document.getElementById("arrow");
+  const spisok = document.getElementById("spisok");
+
+
+
   // addLog("onHoverImage")
   img.className = "photo-style";
   button.style.opacity = 0;
@@ -329,9 +359,7 @@ function onHoverImage() {
   spisok.style.opacity = 0;
   text.style.opacity = 0;
 
-  filledBackground(slides[slideIndex]);
-  filledData(slides[slideIndex]);
-  filledAudio(slides[slideIndex]);
-  filledNumberText(slides[slideIndex]);
+  console.log('ffddfdfdf')
 }
-img.onmousemove = imgOnMouseOver;
+// img.onmousemove = imgOnMouseOver;
+

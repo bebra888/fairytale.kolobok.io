@@ -9,7 +9,7 @@
   opacity: 1;
   
 }
-@media (orientation:landscape){
+
 .photo-style {
   border-radius: 10px;
   max-height: 605px;
@@ -17,18 +17,14 @@
   filter: brightness(90%);  
 }
 
-.bg {
-  background-image: url("");
-  background-repeat: no-repeat;
-  background-size: 100%;
-}
+
 .image{
   border-radius: 10px;
   max-height: 605px;
   width: 100%;
   filter: brightness(65%);  
 }
-}
+
 
 .button-play {
   top: 36%;
